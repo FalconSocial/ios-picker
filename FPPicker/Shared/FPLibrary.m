@@ -144,12 +144,16 @@
     FPUploadAssetSuccessBlock successBlock = ^(id JSON) {
         NSString *filepickerURL = JSON[@"data"][0][@"url"];
 
-        [FPLibrary uploadDataHelper_saveAs:filepickerURL
-                                    toPath:[NSString stringWithFormat:@"%@%@", path, filename]
-                                ofMimetype:mimetype
-                       usingOperationQueue:operationQueue
-                                   success:success
-                                   failure:failure];
+        if (path) {
+            [FPLibrary uploadDataHelper_saveAs:filepickerURL
+                                        toPath:[NSString stringWithFormat:@"%@%@", path, filename]
+                                    ofMimetype:mimetype
+                           usingOperationQueue:operationQueue
+                                       success:success
+                                       failure:failure];
+        } else {
+            success(JSON);
+        }
     };
 
     FPUploadAssetFailureBlock failureBlock = ^(NSError *error,

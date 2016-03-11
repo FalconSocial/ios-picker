@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = 'FPPicker'
+  s.name         = 'FPPicker+FalconSocial'
   s.version      = '5.1.5'
   s.summary      = 'SDK to access Filepicker.io API'
 
@@ -8,13 +8,13 @@ Pod::Spec.new do |s|
     This is an SDK that lets developers easily add a bunch of cloud file handling features without coding.
   DESC
 
-  s.homepage     = 'https://github.com/Ink/ios-picker/'
+  s.homepage     = 'https://github.com/FalconSocial/ios-picker/'
   s.screenshots  = 'https://github.com/Ink/ios-picker/raw/develop/Docs/filepicker.png'
   s.license      = { :type => 'MIT', :file => 'LICENSE.md' }
   s.author       = { 'Filepicker.io' => 'contact@filepicker.io' }
 
   s.source       = {
-    :git => 'https://github.com/Ink/ios-picker.git',
+    :git => 'https://github.com/FalconSocial/ios-picker.git',
     :tag => "v#{s.version}"
   }
 
@@ -36,6 +36,7 @@ Pod::Spec.new do |s|
 
   s.ios.public_header_files = %w(
     FPPicker/Platforms/iOS/FPPicker.h
+    FPPicker/Platforms/iOS/FPLibrary+iOS.h
     FPPicker/Platforms/iOS/FPPickerController.h
     FPPicker/Platforms/iOS/FPSaveController.h
     FPPicker/Platforms/iOS/FPTheme.h
