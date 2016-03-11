@@ -63,12 +63,12 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
    Saves some media from a local URL to a given path in the source asynchronously.
  */
-- (void)saveMediaAtLocalURL:(NSURL *)localURL named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(NSString *)path completion:(nullable FPSimpleAPIMediaCompletionBlock)completion progress:(nullable FPSimpleAPIProgressBlock)progress;
+- (void)saveMediaAtLocalURL:(NSURL *)localURL named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(nullable NSString *)path completion:(nullable FPSimpleAPIMediaCompletionBlock)completion progress:(nullable FPSimpleAPIProgressBlock)progress;
 
 /*!
    Saves some media represented by NSData to a given path in the source asynchronously.
  */
-- (void)saveMediaRepresentedByData:(NSData *)data named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(NSString *)path completion:(nullable FPSimpleAPIMediaCompletionBlock)completion progress:(nullable FPSimpleAPIProgressBlock)progress;
+- (void)saveMediaRepresentedByData:(NSData *)data named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(nullable NSString *)path completion:(nullable FPSimpleAPIMediaCompletionBlock)completion progress:(nullable FPSimpleAPIProgressBlock)progress;
 
 /*!
    Saves some media represented by a FPMediaInfo to a given path in the source asynchronously.

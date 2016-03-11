@@ -168,7 +168,7 @@ typedef void (^FPSimpleAPIPostAuthenticationActionBlock)();
                              progress:progressBlock];
 }
 
-- (void)saveMediaAtLocalURL:(NSURL *)localURL named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(NSString *)path completion:(FPSimpleAPIMediaCompletionBlock)completion progress:(FPSimpleAPIProgressBlock)progress
+- (void)saveMediaAtLocalURL:(NSURL *)localURL named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(nullable NSString *)path completion:(FPSimpleAPIMediaCompletionBlock)completion progress:(FPSimpleAPIProgressBlock)progress
 {
     FPUploadAssetSuccessBlock successBlock = ^(id JSON) {
         if (completion)
@@ -246,7 +246,7 @@ typedef void (^FPSimpleAPIPostAuthenticationActionBlock)();
                     progress:progressBlock];
 }
 
-- (void)saveMediaRepresentedByData:(NSData *)data named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(NSString *)path completion:(FPSimpleAPIMediaCompletionBlock)completion progress:(FPSimpleAPIProgressBlock)progress
+- (void)saveMediaRepresentedByData:(NSData *)data named:(NSString *)name withMimeType:(NSString *)mimetype atPath:(nullable NSString *)path completion:(FPSimpleAPIMediaCompletionBlock)completion progress:(FPSimpleAPIProgressBlock)progress
 {
     FPUploadAssetSuccessBlock successBlock = ^(id JSON) {
         if (completion)
@@ -308,8 +308,10 @@ typedef void (^FPSimpleAPIPostAuthenticationActionBlock)();
         progress(value);
     };
 
-    NSString *fullSourcePath = [self.source fullSourcePathForRelativePath:path];
-
+    NSString *fullSourcePath = nil;
+    if (path) {
+        [self.source fullSourcePathForRelativePath:path];
+    }
     [FPLibrary uploadData:data
                     named:name
                    toPath:fullSourcePath
