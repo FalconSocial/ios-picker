@@ -152,7 +152,7 @@
                                        success:success
                                        failure:failure];
         } else {
-            success(JSON);
+            success(JSON[@"data"][0]);
         }
     };
 

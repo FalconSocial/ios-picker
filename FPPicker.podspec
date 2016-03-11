@@ -36,7 +36,6 @@ Pod::Spec.new do |s|
 
   s.ios.public_header_files = %w(
     FPPicker/Platforms/iOS/FPPicker.h
-    FPPicker/Platforms/iOS/FPLibrary+iOS.h
     FPPicker/Platforms/iOS/FPPickerController.h
     FPPicker/Platforms/iOS/FPSaveController.h
     FPPicker/Platforms/iOS/FPTheme.h
