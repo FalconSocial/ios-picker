@@ -234,7 +234,11 @@ typedef void (^FPSimpleAPIPostAuthenticationActionBlock)();
         }
     };
 
-    NSString *fullSourcePath = [self.source fullSourcePathForRelativePath:path];
+//    NSString *fullSourcePath = [self.source fullSourcePathForRelativePath:path];
+    NSString *fullSourcePath = nil;
+    if (path) {
+        fullSourcePath = [self.source fullSourcePathForRelativePath:path];
+    }
 
     [FPLibrary uploadDataURL:localURL
                        named:name
@@ -310,7 +314,7 @@ typedef void (^FPSimpleAPIPostAuthenticationActionBlock)();
 
     NSString *fullSourcePath = nil;
     if (path) {
-        [self.source fullSourcePathForRelativePath:path];
+        fullSourcePath = [self.source fullSourcePathForRelativePath:path];
     }
     [FPLibrary uploadData:data
                     named:name
